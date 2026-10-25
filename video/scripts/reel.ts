@@ -97,7 +97,7 @@ function preparaVoce(post: PostSocial): (VoceReel & { cartella: string }) | null
 
 const [richiesto] = process.argv.slice(2);
 const oggi = process.env.SOCIAL_DATA?.trim() || oggiInSvizzera();
-const post = richiesto ? POST_SOCIAL.find((p) => p.id === richiesto) : postDelGiorno(oggi);
+const post = richiesto ? POST_SOCIAL.find((p) => p.id === richiesto) : postDelGiorno(oggi, "video");
 if (!post) {
   if (richiesto) {
     console.error(`Post sconosciuto: ${richiesto}. Gli id sono in src/data/post.ts.`);

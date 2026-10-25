@@ -9,8 +9,8 @@ import type { Piattaforma } from "../../src/lib/post";
 
 export const FILE_STORICO = "social/storico.json";
 
-export const FORMATI = ["carosello", "video"] as const;
-export type Formato = (typeof FORMATI)[number];
+export { FORMATI, type Formato } from "../../src/data/post";
+import type { Formato } from "../../src/data/post";
 
 export type VoceStorico = {
   /** Giorno del post (ISO). */

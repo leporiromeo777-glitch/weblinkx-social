@@ -36,7 +36,7 @@ export function cosaPubblicare(
   social: Record<Formato, number>,
 ): Formato | null {
   const oggi = oggiInSvizzera(adesso);
-  if (!postDelGiorno(oggi)) return null;
+  if (!postDelGiorno(oggi, "carosello") && !postDelGiorno(oggi, "video")) return null;
   const ora = oraInSvizzera(adesso);
   const usciti = (formato: Formato) => storico.filter((v) => v.data === oggi && v.formato === formato).length;
   if (ora >= ORE.carosello && usciti("carosello") < social.carosello) return "carosello";

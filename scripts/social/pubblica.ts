@@ -14,7 +14,7 @@
  */
 import { appendFileSync, existsSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { immaginiPost, POST_SOCIAL, postDelGiorno, senzaEvidenza, type PostSocial } from "../../src/data/post";
+import { FINE_PIANO, immaginiPost, INIZIO_PIANO, postDelGiorno, senzaEvidenza, type PostSocial } from "../../src/data/post";
 import { dataSvizzera } from "../../src/lib/post";
 import { didascalia, testiAlternativi, type Piattaforma } from "../../src/lib/post";
 import { leggiConfigurazione, statoPiattaforma, type Configurazione } from "./configurazione";
@@ -122,21 +122,20 @@ async function main() {
     return;
   }
 
-  const post = postDelGiorno(conf.data);
+  const post = postDelGiorno(conf.data, conf.formato);
   if (!post) {
-    const ultimo = POST_SOCIAL.at(-1)!;
     // Il promemoria lo dà il carosello: per il video basta una riga.
-    if (conf.data > ultimo.data && conf.formato === "carosello") {
+    if (conf.data > FINE_PIANO && conf.formato === "carosello") {
       // Fallisce apposta: GitHub manda un'email, così ci si accorge che servono post nuovi.
       console.error(
-        `Il piano editoriale è finito il ${dataSvizzera(ultimo.data)}: aggiungi i post nuovi in src/data/post.ts (vedi social/README.md).`,
+        `Il piano editoriale è finito il ${dataSvizzera(FINE_PIANO)}: aggiungi i post nuovi in src/data/post.ts (vedi social/README.md).`,
       );
       process.exitCode = 1;
     } else {
       console.log(
-        conf.data > ultimo.data
-          ? `Il piano editoriale è finito il ${dataSvizzera(ultimo.data)}: niente video.`
-          : `Nessun post per il ${dataSvizzera(conf.data)}: il primo esce il ${dataSvizzera(POST_SOCIAL[0].data)}.`,
+        conf.data > FINE_PIANO
+          ? `Il piano editoriale è finito il ${dataSvizzera(FINE_PIANO)}: niente video.`
+          : `Nessun post per il ${dataSvizzera(conf.data)}: il primo esce il ${dataSvizzera(INIZIO_PIANO)}.`,
       );
     }
     riassunto(conf, undefined, []);

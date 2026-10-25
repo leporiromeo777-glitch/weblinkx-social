@@ -6,7 +6,7 @@ const ADESSO = new Date("2026-11-05T17:00:00Z");
 
 /** Una lettura di Instagram (carosello) con persone raggiunte e interazioni. */
 function ig(post: string, reach: number, saved = 0, likes = 0, giorni = 5): LetturaPost {
-  const data = POST_SOCIAL.find((p) => p.id === post)!.data;
+  const data = POST_SOCIAL.find((p) => p.id === post)!.uscite.carosello;
   return { data, post, piattaforma: "instagram", formato: "carosello", giorni, metriche: { reach, saved, likes } };
 }
 

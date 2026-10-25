@@ -160,27 +160,31 @@ def musica(mixer: Mixer, durata: float, rng: np.random.Generator):
         battuta += 1
 
 
+# Gli effetti stanno sotto la musica: un accento, non un rumore sopra la voce.
+EFFETTI = 0.3
+
+
 def effetti(mixer: Mixer, suoni: list, fps: float, rng: np.random.Generator):
     for s in suoni:
         quando = s["fotogramma"] / fps
         tipo = s["tipo"]
         if tipo == "passaggio":
-            mixer.metti(soffio(rng), quando, 0.22)
+            mixer.metti(soffio(rng), quando, 0.22 * EFFETTI)
         elif tipo == "punto":
             # La, Do, Mi, La: la nota sale a ogni punto.
-            mixer.metti(pop(hz([69, 72, 76, 81][s.get("indice", 0) % 4])), quando, 0.55)
+            mixer.metti(pop(hz([69, 72, 76, 81][s.get("indice", 0) % 4])), quando, 0.55 * EFFETTI)
         elif tipo == "scintilla":
-            mixer.metti(scintilla(rng), quando, 0.18, rng.uniform(0.3, 0.7))
+            mixer.metti(scintilla(rng), quando, 0.18 * EFFETTI, rng.uniform(0.3, 0.7))
         elif tipo == "conta":
             fotogrammi = s.get("durata", 30)
             for k in range(0, fotogrammi, 3):
-                mixer.metti(tic(1200 + 900 * k / fotogrammi), quando + k / fps, 0.3)
+                mixer.metti(tic(1200 + 900 * k / fotogrammi), quando + k / fps, 0.3 * EFFETTI)
         elif tipo == "cifra":
-            mixer.metti(campana(hz(84)), quando, 0.4)
+            mixer.metti(campana(hz(84)), quando, 0.4 * EFFETTI)
         elif tipo == "festa":
             for k, nota in enumerate([69, 72, 76, 81]):
-                mixer.metti(plettro(hz(nota + 12), 0.9, 0.9), quando + k * 0.07, 0.4, 0.3 + 0.13 * k)
-            mixer.metti(scintilla(rng), quando + 0.28, 0.18)
+                mixer.metti(plettro(hz(nota + 12), 0.9, 0.9), quando + k * 0.07, 0.4 * EFFETTI, 0.3 + 0.13 * k)
+            mixer.metti(scintilla(rng), quando + 0.28, 0.18 * EFFETTI)
 
 
 def main():

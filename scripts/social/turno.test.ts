@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { POST_SOCIAL } from "../../src/data/post";
+import { giornoDelPiano, postDelGiorno } from "../../src/data/post";
 import type { VoceStorico } from "./storico";
 import { cosaPubblicare, momentoDiControllare, oraInSvizzera } from "./turno";
 
 const SOCIAL = { video: 2, carosello: 2 };
-const giorno = POST_SOCIAL[1].data;
+const giorno = giornoDelPiano(1);
 const uscito = (piattaforma: VoceStorico["piattaforma"], formato: VoceStorico["formato"]): VoceStorico => ({
   data: giorno,
-  post: POST_SOCIAL[1].id,
+  post: postDelGiorno(giorno, formato)!.id,
   piattaforma,
   formato,
   id: "1",

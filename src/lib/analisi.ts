@@ -185,11 +185,6 @@ export const CARATTERISTICHE: readonly { nome: string; di: (p: PostSocial) => st
   },
   { nome: "Sito di un cliente", di: (p) => (p.schede.some((s) => s.tipo === "sito") ? "con il sito" : "senza siti") },
   { nome: "Schede", di: (p) => (p.schede.length <= 2 ? "fino a 2 schede" : p.schede.length === 3 ? "3 schede" : "4 schede o più") },
-  {
-    nome: "Giorno",
-    di: (p) =>
-      ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"][new Date(`${p.data}T12:00:00Z`).getUTCDay()],
-  },
 ];
 
 const decimale = (x: number, cifre = 2) => x.toFixed(cifre).replace(".", ",");

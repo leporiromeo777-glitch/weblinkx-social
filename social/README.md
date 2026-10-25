@@ -6,9 +6,14 @@ Ogni giorno escono da soli e gratis due contenuti di Weblinkx: a pranzo un
 colleghi). Poi il sistema legge le statistiche e scrive quali post vanno
 meglio e perché ([`analisi.md`](analisi.md)).
 
-- **I post** sono in [`src/data/post.ts`](../src/data/post.ts): uno al
-  giorno, dal 27.10.2026 per 29 giorni (il primo giorno è `INIZIO_PIANO`:
-  per spostare tutto basta cambiare quella data). Ci sono quattro tipi di
+- **I post** sono in [`src/data/post.ts`](../src/data/post.ts): dal
+  27.10.2026 per 29 giorni (il primo giorno è `INIZIO_PIANO`: per spostare
+  tutto basta cambiare quella data). Il video e il carosello dello stesso
+  giorno parlano di **argomenti diversi**: i video seguono `ORDINE_VIDEO`
+  (prima i lavori, dove i siti scorrono), i caroselli lo stesso elenco
+  spostato di 17 giorni (prima i consigli da salvare). Così ogni argomento
+  esce una volta in video e una volta in carosello, a 12-17 giorni di
+  distanza. Ci sono quattro tipi di
   post: i **lavori** (i siti dei clienti, da
   [`src/data/lavori.ts`](../src/data/lavori.ts)), i **consigli** per chi ha
   un'attività (ogni regola o cifra con la sua fonte ufficiale, da
@@ -26,7 +31,8 @@ meglio e perché ([`analisi.md`](analisi.md)).
   scorrono nel telefono e nel browser, i punti compaiono quando la voce li
   dice. Sotto, musica ed effetti fatti dal codice
   ([`video/scripts/audio-reel.py`](../video/scripts/audio-reel.py)), niente
-  diritti da pagare. Volume finale -14 LUFS. In locale:
+  diritti da pagare; gli effetti stanno sotto la musica (`EFFETTI`). Volume
+  finale -14 LUFS. In locale:
   `cd video && npm run reel -- <id-del-post>` (servono anche `ffmpeg` e
   Python con NumPy). Il video non va nel repository: GitHub lo tiene due
   settimane tra i file dell'esecuzione («Artifacts»).

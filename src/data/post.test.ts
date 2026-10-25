@@ -2,7 +2,17 @@ import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { didascalia, LIMITI_DIDASCALIA, PIATTAFORME } from "../lib/post";
 import { ID_LAVORI, type IdLavoro } from "./lavori";
-import { HASHTAG_COMUNI, immaginiPost, INIZIO_PIANO, POST_SOCIAL, senzaEvidenza } from "./post";
+import {
+  FINE_PIANO,
+  giornoDelPiano,
+  HASHTAG_COMUNI,
+  immaginiPost,
+  INIZIO_PIANO,
+  POST_FUORI_PIANO,
+  POST_SOCIAL,
+  postDelGiorno,
+  senzaEvidenza,
+} from "./post";
 
 const dimensioni = JSON.parse(readFileSync("risorse/siti/dimensioni.json", "utf8")) as Record<string, Record<string, unknown>>;
 
@@ -15,13 +25,26 @@ function lavoriDelPost(post: (typeof POST_SOCIAL)[number]): IdLavoro[] {
 }
 
 describe("piano dei post", () => {
-  it("un post al giorno da INIZIO_PIANO, con id diversi", () => {
-    expect(POST_SOCIAL[0].data).toBe(INIZIO_PIANO);
-    for (let i = 1; i < POST_SOCIAL.length; i++) {
-      const giorni = (Date.parse(POST_SOCIAL[i].data) - Date.parse(POST_SOCIAL[i - 1].data)) / 86_400_000;
-      expect(giorni).toBe(1);
-    }
+  it("ogni giorno un video e un carosello su due post diversi", () => {
+    expect(POST_FUORI_PIANO).toEqual([]);
     expect(new Set(POST_SOCIAL.map((p) => p.id)).size).toBe(POST_SOCIAL.length);
+    for (let i = 0; i < POST_SOCIAL.length; i++) {
+      const giorno = giornoDelPiano(i);
+      const video = postDelGiorno(giorno, "video");
+      const carosello = postDelGiorno(giorno, "carosello");
+      expect(video, `video del ${giorno}`).toBeDefined();
+      expect(carosello, `carosello del ${giorno}`).toBeDefined();
+      expect(video!.id).not.toBe(carosello!.id);
+    }
+    expect(postDelGiorno(INIZIO_PIANO, "video")!.id).toBe("ciao-sono-weblinkx");
+    expect(giornoDelPiano(POST_SOCIAL.length - 1)).toBe(FINE_PIANO);
+  });
+
+  it("lo stesso argomento torna nell'altro formato dopo almeno 10 giorni", () => {
+    for (const p of POST_SOCIAL) {
+      const giorni = Math.abs(Date.parse(p.uscite.video) - Date.parse(p.uscite.carosello)) / 86_400_000;
+      expect(giorni, p.id).toBeGreaterThanOrEqual(10);
+    }
   });
 
   it.each(POST_SOCIAL.map((p) => [p.id, p] as const))("%s: schede che stanno nelle grafiche", (_, post) => {

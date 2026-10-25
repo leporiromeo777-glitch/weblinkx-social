@@ -1,8 +1,10 @@
 /**
- * Il piano dei post di Weblinkx: un post al giorno, che esce come video
- * (Reel, a pranzo) e come carosello di immagini (la sera). Ogni post ha le
- * schede (le grafiche le fa video/, vedi social/README.md), la didascalia,
- * gli hashtag e, per i consigli, le fonti ufficiali.
+ * Il piano dei post di Weblinkx: ogni giorno un video (Reel, a pranzo) e un
+ * carosello di immagini (la sera) su due argomenti diversi. Ogni post esce
+ * una volta in video e una volta in carosello, a qualche settimana di
+ * distanza (ORDINE_VIDEO, SFASAMENTO_CAROSELLO). Ogni post ha le schede (le
+ * grafiche le fa video/, vedi social/README.md), la didascalia, gli hashtag
+ * e, per i consigli, le fonti ufficiali.
  *
  * Regole (AGENTS.md): solo lavori confermati (src/data/lavori.ts), niente
  * risultati inventati, ogni cifra o regola con la sua fonte (src/data/fonti.ts).
@@ -16,6 +18,10 @@ export type { Fonte };
 
 export const CATEGORIE = ["lavoro", "consiglio", "dietro-le-quinte"] as const;
 export type Categoria = (typeof CATEGORIE)[number];
+
+/** Il carosello di immagini o il video (Reel). */
+export const FORMATI = ["carosello", "video"] as const;
+export type Formato = (typeof FORMATI)[number];
 
 export type SchedaPost =
   /** La prima scheda: occhiello e titolo grande; con un lavoro, il sito sul telefono accanto. */
@@ -31,8 +37,8 @@ export type SchedaPost =
 
 export type PostSocial = {
   id: string;
-  /** Giorno di pubblicazione (ISO, ora svizzera): lo calcola il piano da INIZIO_PIANO. */
-  data: string;
+  /** Il giorno (ISO, ora svizzera) in cui esce come video e come carosello: lo calcola il piano. */
+  uscite: Record<Formato, string>;
   categoria: Categoria;
   /** Il lavoro mostrato, per i post sui lavori. */
   lavoro?: IdLavoro;
@@ -56,7 +62,7 @@ export const INVITO = {
   sotto: "Scrivimi: preventivo senza impegno",
 } as const;
 
-/** Il primo giorno del piano: ogni post esce il giorno dopo il precedente. Per spostare tutto basta cambiare questa data. */
+/** Il primo giorno del piano. Per spostare tutto basta cambiare questa data. */
 export const INIZIO_PIANO = "2026-10-27";
 
 /** Il giorno ISO `giorni` dopo `inizio`. */
@@ -76,7 +82,7 @@ function cosaCe(id: IdLavoro): SchedaPost {
   return { tipo: "punti", titolo: "Cosa c'è sul sito", punti: LAVORI[id].cosaCe.slice(0, 4) };
 }
 
-const PIANO: readonly Omit<PostSocial, "data">[] = [
+const PIANO: readonly Omit<PostSocial, "uscite">[] = [
   {
     id: "ciao-sono-weblinkx",
     categoria: "dietro-le-quinte",
@@ -709,12 +715,75 @@ const PIANO: readonly Omit<PostSocial, "data">[] = [
   },
 ];
 
-/** I post con il loro giorno, uno al giorno da INIZIO_PIANO. */
-export const POST_SOCIAL: readonly PostSocial[] = PIANO.map((p, i) => ({ ...p, data: giornoDopo(INIZIO_PIANO, i) }));
+/**
+ * L'ordine dei video, un post al giorno da INIZIO_PIANO: prima i lavori e il
+ * dietro le quinte (nel video i siti scorrono), poi i consigli.
+ */
+export const ORDINE_VIDEO = [
+  "ciao-sono-weblinkx",
+  "lavoro-essenza",
+  "come-nasce-un-sito",
+  "lavoro-swiss-ncc",
+  "sito-sul-telefono",
+  "lavoro-centro-cardiologico",
+  "come-nasce-un-logo",
+  "lavoro-jf-limo",
+  "velocita-sito",
+  "lavoro-villa-hedonia",
+  "come-nasce-un-video",
+  "lavoro-slada",
+  "pulsante-whatsapp",
+  "ogni-sito-diverso",
+  "anteprima-prima-di-pubblicare",
+  "lavoro-tre-lingue",
+  "cosa-preparare",
+  "google-maps",
+  "foto-vere",
+  "recensioni-google",
+  "errori-sito",
+  "titolo-su-google",
+  "cinque-cose-sito",
+  "dominio-email",
+  "lucchetto-https",
+  "informativa-privacy",
+  "contrasto-testo",
+  "vendere-online-legge",
+  "checklist-sito",
+] as const;
 
-export function postDelGiorno(data: string): PostSocial | undefined {
-  return POST_SOCIAL.find((p) => p.data === data);
+/**
+ * Il carosello di un giorno è il video di 17 giorni dopo (o, verso la fine,
+ * di 12 giorni prima): così video e carosello dello stesso giorno parlano di
+ * cose diverse, i caroselli partono dai consigli da salvare, e ogni
+ * argomento torna nell'altro formato dopo qualche settimana.
+ */
+export const SFASAMENTO_CAROSELLO = 17;
+
+/** Il giorno ISO numero `indice` del piano (0 = INIZIO_PIANO). */
+export function giornoDelPiano(indice: number): string {
+  return giornoDopo(INIZIO_PIANO, indice);
 }
+
+/** L'ultimo giorno del piano. */
+export const FINE_PIANO = giornoDelPiano(ORDINE_VIDEO.length - 1);
+
+/** I post con i loro giorni, nell'ordine dei video. */
+export const POST_SOCIAL: readonly PostSocial[] = ORDINE_VIDEO.map((id, i) => {
+  const post = PIANO.find((p) => p.id === id);
+  if (!post) throw new Error(`ORDINE_VIDEO: post sconosciuto ${id}`);
+  const n = ORDINE_VIDEO.length;
+  // Il giorno in cui esce come carosello: quello il cui video è 17 posti più avanti.
+  const carosello = (i - SFASAMENTO_CAROSELLO + n) % n;
+  return { ...post, uscite: { video: giornoDelPiano(i), carosello: giornoDelPiano(carosello) } };
+});
+
+/** Il post che esce in quel giorno in quel formato. */
+export function postDelGiorno(data: string, formato: Formato): PostSocial | undefined {
+  return POST_SOCIAL.find((p) => p.uscite[formato] === data);
+}
+
+/** I post scritti ma non in ORDINE_VIDEO (non escono mai): per i test. */
+export const POST_FUORI_PIANO = PIANO.filter((p) => !(ORDINE_VIDEO as readonly string[]).includes(p.id)).map((p) => p.id);
 
 export function trovaPost(id: string): PostSocial {
   const post = POST_SOCIAL.find((p) => p.id === id);
