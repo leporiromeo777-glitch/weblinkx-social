@@ -1,0 +1,5 @@
+# Il controllo gratuito del sito di Weblinkx (README.md). La pagina è
+# statica, le due funzioni sono in netlify/functions.
+[build]
+  publish = "public"
+  command = "echo 'Niente da costruire'"

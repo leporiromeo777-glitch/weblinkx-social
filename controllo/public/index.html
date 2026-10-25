@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controlla il tuo sito gratis | Weblinkx</title>
+  <meta name="description" content="In un minuto vedi sei cose che Google e i tuoi clienti guardano sul tuo sito: lucchetto, telefono, titolo, descrizione, contatto veloce e velocità. Gratis, da Weblinkx in Ticino.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sfondo: #0d0f14; --sfondo2: #141820; --sfondo3: #1e2330;
+      --blu: #116DFF; --testo: #fff; --tenue: #9AA3B0; --chiaro: #E8EAED;
+      --ok: #3ccf6e; --male: #ff6b6b;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--sfondo); color: var(--testo); font: 17px/1.55 Inter, system-ui, sans-serif; }
+    a { color: var(--blu); }
+    .pagina { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
+    .logo { font-weight: 800; font-size: 26px; letter-spacing: -0.02em; text-decoration: none; color: var(--testo); }
+    .logo span { color: var(--blu); }
+    header a.sito { color: var(--tenue); text-decoration: none; font-size: 15px; }
+    h1 { font-size: clamp(34px, 7vw, 52px); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 16px; }
+    h1 em { font-style: normal; color: var(--blu); }
+    h2 { font-size: 26px; letter-spacing: -0.02em; margin: 0 0 12px; }
+    .sotto { color: var(--chiaro); font-size: 19px; margin: 0 0 28px; }
+    .riga { display: flex; gap: 10px; flex-wrap: wrap; }
+    input[type=text], input[type=email], input[type=tel] {
+      flex: 1 1 260px; min-width: 0; padding: 16px 18px; font: inherit; color: var(--testo);
+      background: var(--sfondo2); border: 1px solid var(--sfondo3); border-radius: 12px;
+    }
+    input:focus { outline: 2px solid var(--blu); outline-offset: 1px; }
+    button {
+      padding: 16px 26px; font: 600 17px Inter, system-ui, sans-serif; color: #fff; cursor: pointer;
+      background: var(--blu); border: 0; border-radius: 999px; box-shadow: 0 0 30px rgba(17, 109, 255, 0.4);
+    }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    .nota { color: var(--tenue); font-size: 14px; }
+    .stato { margin: 20px 0 0; color: var(--chiaro); min-height: 1.5em; }
+    .stato.errore { color: var(--male); }
+    #risultati { margin-top: 40px; }
+    .riassunto { font-size: 20px; font-weight: 600; margin: 0 0 18px; }
+    .esito { display: flex; gap: 14px; padding: 18px; margin-bottom: 12px; background: var(--sfondo2); border: 1px solid var(--sfondo3); border-radius: 14px; }
+    .segno { flex: 0 0 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; }
+    .ok .segno { background: rgba(60, 207, 110, 0.15); color: var(--ok); }
+    .da-migliorare .segno { background: rgba(255, 107, 107, 0.15); color: var(--male); }
+    .non-controllato .segno { background: var(--sfondo3); color: var(--tenue); }
+    .esito h3 { margin: 0 0 4px; font-size: 18px; }
+    .esito p { margin: 0 0 6px; color: var(--chiaro); }
+    .esito .fonte { font-size: 13px; color: var(--tenue); }
+    .scheda { margin-top: 36px; padding: 24px; background: var(--sfondo2); border: 1px solid var(--blu); border-radius: 16px; }
+    .scheda form { display: grid; gap: 12px; }
+    .scheda label.casella { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--chiaro); }
+    .scheda label.casella input { margin-top: 4px; width: 18px; height: 18px; flex: none; }
+    .nascosto { display: none !important; }
+    section.come { margin-top: 56px; color: var(--chiaro); }
+    section.come ul { padding-left: 20px; }
+    footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--sfondo3); color: var(--tenue); font-size: 14px; }
+    footer h2 { font-size: 17px; color: var(--chiaro); }
+  </style>
+</head>
+<body>
+  <div class="pagina">
+    <header>
+      <a class="logo" href="https://weblinkx.ch">Web<span>linkx</span></a>
+      <a class="sito" href="https://weblinkx.ch">weblinkx.ch</a>
+    </header>
+
+    <main>
+      <h1>Controlla il tuo sito <em>gratis</em></h1>
+      <p class="sotto">In un minuto vedi sei cose che Google e i tuoi clienti guardano: lucchetto, telefono, titolo, descrizione, contatto veloce e velocità.</p>
+
+      <form id="controllo" class="riga" novalidate>
+        <input id="url" type="text" inputmode="url" autocomplete="url" placeholder="tuaattivita.ch" aria-label="L'indirizzo del tuo sito" required>
+        <button id="vai" type="submit">Controlla</button>
+      </form>
+      <p id="stato" class="stato" role="status" aria-live="polite"></p>
+
+      <div id="risultati" class="nascosto">
+        <p id="riassunto" class="riassunto"></p>
+        <div id="esiti"></div>
+        <p class="nota">Sono informazioni generali, fatte in automatico sulla pagina iniziale del sito: non sostituiscono un'analisi completa.</p>
+
+        <div class="scheda">
+          <h2>Ricevi il rapporto per email</h2>
+          <p class="nota" style="margin-top:0">Ti mando questi risultati con le fonti. Se vuoi, ti spiego anche come sistemare i punti da migliorare: il preventivo è senza impegno.</p>
+          <form id="rapporto" name="rapporto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <p class="nascosto"><label>Non compilare: <input name="bot-field"></label></p>
+            <input type="hidden" name="sito" id="sito">
+            <input type="text" name="nome" placeholder="Il tuo nome" autocomplete="name" maxlength="80">
+            <input type="email" name="email" placeholder="La tua email" autocomplete="email" required maxlength="200">
+            <input type="text" name="attivita" placeholder="La tua attività (facoltativo)" maxlength="120">
+            <input type="tel" name="telefono" placeholder="Telefono (facoltativo)" autocomplete="tel" maxlength="40">
+            <label class="casella"><input type="checkbox" name="consenso" value="sì" required> Voglio ricevere il rapporto per email, e Weblinkx può ricontattarmi su questo controllo.</label>
+            <div><button type="submit">Mandami il rapporto</button></div>
+          </form>
+          <p id="grazie" class="stato" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <section class="come">
+        <h2>Cosa controllo</h2>
+        <ul>
+          <li><b>Il lucchetto (HTTPS):</b> senza, Chrome scrive «Non sicuro».</li>
+          <li><b>Il telefono:</b> se la pagina si adatta allo schermo dello smartphone.</li>
+          <li><b>Titolo e descrizione:</b> quello che può comparire su Google.</li>
+          <li><b>Il contatto veloce:</b> un link per chiamarti, scriverti su WhatsApp o mandarti un'email.</li>
+          <li><b>La velocità:</b> quanto ci mette a comparire il contenuto principale su un telefono, misurato con PageSpeed Insights di Google.</li>
+        </ul>
+        <p>Ogni risultato ha la sua fonte ufficiale (Google, WhatsApp).</p>
+      </section>
+    </main>
+
+    <footer>
+      <h2>I tuoi dati</h2>
+      <p>Chi li tratta: Romeo Lepori, Weblinkx, <a href="mailto:romeolepori@gmail.com">romeolepori@gmail.com</a>. Per fare il controllo uso solo l'indirizzo del sito, che non salvo. Se chiedi il rapporto, salvo anche nome, email e, se li scrivi, attività e telefono, solo per mandarti il rapporto e ricontattarti su questo controllo. Il modulo è salvato su Netlify e l'email parte da Gmail: sono servizi di aziende con sede negli Stati Uniti. Li cancello quando non servono più; puoi chiedermi in ogni momento di vederli o di cancellarli.</p>
+      <p>© Weblinkx · <a href="https://weblinkx.ch">weblinkx.ch</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const statoEl = document.getElementById("stato");
+    const vai = document.getElementById("vai");
+    const SEGNI = { ok: "✓", "da-migliorare": "✗", "non-controllato": "–" };
+
+    function mostra(controllo) {
+      const lista = document.getElementById("esiti");
+      lista.replaceChildren();
+      for (const e of controllo.esiti) {
+        const riga = document.createElement("div");
+        riga.className = `esito ${e.stato}`;
+        const segno = document.createElement("div");
+        segno.className = "segno";
+        segno.textContent = SEGNI[e.stato];
+        const testo = document.createElement("div");
+        const h = document.createElement("h3");
+        h.textContent = e.titolo;
+        const p = document.createElement("p");
+        p.textContent = e.testo;
+        const fonte = document.createElement("div");
+        fonte.className = "fonte";
+        const a = document.createElement("a");
+        a.href = e.fonte.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = e.fonte.titolo;
+        fonte.append("Fonte: ", a, `, ${e.fonte.ente}`);
+        testo.append(h, p, fonte);
+        riga.append(segno, testo);
+        lista.append(riga);
+      }
+      const brutti = controllo.esiti.filter((e) => e.stato === "da-migliorare").length;
+      document.getElementById("riassunto").textContent = brutti
+        ? `${controllo.sito}: ${brutti === 1 ? "un punto" : `${brutti} punti`} da migliorare`
+        : `${controllo.sito}: le cose di base ci sono tutte`;
+      document.getElementById("sito").value = controllo.url;
+      document.getElementById("risultati").classList.remove("nascosto");
+    }
+
+    document.getElementById("controllo").addEventListener("submit", async (evento) => {
+      evento.preventDefault();
+      const url = document.getElementById("url").value.trim();
+      if (!url) {
+        statoEl.className = "stato errore";
+        statoEl.textContent = "Scrivi l'indirizzo del sito, per esempio tuaattivita.ch.";
+        return;
+      }
+      vai.disabled = true;
+      statoEl.className = "stato";
+      statoEl.textContent = "Sto aprendo il sito… la velocità può richiedere fino a mezzo minuto.";
+      try {
+        const risposta = await fetch("/api/controlla", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url }),
+        });
+        const dati = await risposta.json().catch(() => ({ errore: "Qualcosa non ha funzionato. Riprova tra poco." }));
+        if (!risposta.ok) throw new Error(dati.errore);
+        statoEl.textContent = "";
+        mostra(dati);
+        document.getElementById("risultati").scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (errore) {
+        statoEl.className = "stato errore";
+        statoEl.textContent = errore.message || "Qualcosa non ha funzionato. Riprova tra poco.";
+      } finally {
+        vai.disabled = false;
+      }
+    });
+
+    document.getElementById("rapporto").addEventListener("submit", async (evento) => {
+      evento.preventDefault();
+      const modulo = evento.target;
+      const grazie = document.getElementById("grazie");
+      if (!modulo.reportValidity()) return;
+      const pulsante = modulo.querySelector("button");
+      pulsante.disabled = true;
+      try {
+        const dati = new FormData(modulo);
+        if (!dati.has("form-name")) dati.set("form-name", "rapporto");
+        const risposta = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(dati).toString(),
+        });
+        if (!risposta.ok) throw new Error();
+        modulo.classList.add("nascosto");
+        grazie.className = "stato";
+        grazie.textContent = "Fatto! Tra qualche minuto ti arriva l'email con il rapporto (guarda anche nello spam).";
+      } catch {
+        grazie.className = "stato errore";
+        grazie.textContent = "Non sono riuscito a mandarlo. Riprova tra poco o scrivimi a romeolepori@gmail.com.";
+        pulsante.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

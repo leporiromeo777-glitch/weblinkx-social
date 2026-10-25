@@ -1,0 +1,19 @@
+{
+  "name": "weblinkx-controllo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Il controllo gratuito del sito di Weblinkx: cinque cose che Google e chi visita guardano, con il rapporto per email.",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "nodemailer": "^7.0.10"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^5.1.0",
+    "@types/node": "^22.20.5",
+    "@types/nodemailer": "^7.0.3",
+    "typescript": "^5.9.3"
+  }
+}
