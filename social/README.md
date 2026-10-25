@@ -7,7 +7,7 @@ colleghi). Poi il sistema legge le statistiche e scrive quali post vanno
 meglio e perché ([`analisi.md`](analisi.md)).
 
 - **I post** sono in [`src/data/post.ts`](../src/data/post.ts), e i giorni
-  in cui escono nel `CALENDARIO`: una riga al giorno dal 27.10.2026
+  in cui escono nel `CALENDARIO`: una riga al giorno dal 26.10.2026
   (`INIZIO_PIANO`), con il video e il carosello. Il video e il carosello
   dello stesso giorno parlano di **argomenti diversi**: i video partono dai
   lavori (dove i siti scorrono), i caroselli dai consigli da salvare, e ogni

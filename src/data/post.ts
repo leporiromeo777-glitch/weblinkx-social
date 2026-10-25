@@ -67,7 +67,7 @@ export const INVITO = {
  * ma solo prima del primo post: i test confrontano i giorni usciti con
  * social/storico.json.
  */
-export const INIZIO_PIANO = "2026-10-27";
+export const INIZIO_PIANO = "2026-10-26";
 
 /** Il giorno ISO `giorni` dopo `inizio`. */
 function giornoDopo(inizio: string, giorni: number): string {
