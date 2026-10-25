@@ -1,0 +1,24 @@
+{
+  "name": "weblinkx-social",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "I post social di Weblinkx: caroselli e video fatti dal codice e pubblicati da soli su Instagram e Facebook.",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "catture": "tsx scripts/catture.ts",
+    "social:pubblica": "tsx scripts/social/pubblica.ts",
+    "social:statistiche": "tsx scripts/social/aggiorna-statistiche.ts",
+    "social:turno": "tsx scripts/social/cosa-pubblicare.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

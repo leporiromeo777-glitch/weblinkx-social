@@ -1,0 +1,62 @@
+{
+  "centro-cardiologico": {
+    "desktop": {
+      "larghezza": 1440,
+      "altezza": 5548
+    },
+    "mobile": {
+      "larghezza": 780,
+      "altezza": 12000
+    }
+  },
+  "essenza": {
+    "desktop": {
+      "larghezza": 1440,
+      "altezza": 7000
+    },
+    "mobile": {
+      "larghezza": 780,
+      "altezza": 12000
+    }
+  },
+  "jf-limo": {
+    "desktop": {
+      "larghezza": 1440,
+      "altezza": 7000
+    },
+    "mobile": {
+      "larghezza": 780,
+      "altezza": 12000
+    }
+  },
+  "slada": {
+    "desktop": {
+      "larghezza": 1440,
+      "altezza": 5671
+    },
+    "mobile": {
+      "larghezza": 780,
+      "altezza": 12000
+    }
+  },
+  "swiss-ncc": {
+    "desktop": {
+      "larghezza": 1440,
+      "altezza": 7000
+    },
+    "mobile": {
+      "larghezza": 780,
+      "altezza": 12000
+    }
+  },
+  "villa-hedonia": {
+    "desktop": {
+      "larghezza": 1440,
+      "altezza": 7000
+    },
+    "mobile": {
+      "larghezza": 780,
+      "altezza": 12000
+    }
+  }
+}
