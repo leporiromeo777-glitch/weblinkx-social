@@ -49,7 +49,8 @@ export function domandaInvito(post: PostSocial): string {
 }
 
 export function didascalia(post: PostSocial, piattaforma: Piattaforma, sitoUrl: string = MARCHIO.sito): string {
-  const invito = `${domandaInvito(post)} ${INVITO.sotto}${piattaforma === "instagram" ? ": link nella bio." : `: ${linkSito(sitoUrl, piattaforma)}`}`;
+  const dove = piattaforma === "instagram" ? "link nella bio." : linkSito(sitoUrl, piattaforma);
+  const invito = `${domandaInvito(post)} Scrivimi, il preventivo è senza impegno: ${dove}`;
   const fonti = post.fonti.length
     ? ["", `${post.fonti.length === 1 ? "Fonte" : "Fonti"}:`, ...post.fonti.map((f) => `• ${f.titolo}, ${f.ente}: ${f.url}`)]
     : [];
