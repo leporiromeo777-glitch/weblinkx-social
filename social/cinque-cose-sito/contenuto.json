@@ -1,0 +1,31 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Il tuo sito",
+      "titolo": "5 cose che il sito della tua attività *deve avere*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Le prime tre",
+      "numerati": true,
+      "punti": [
+        "Cosa fai e dove, già nella prima schermata",
+        "Telefono e WhatsApp che si aprono con un tocco",
+        "Orari e indirizzo, con la mappa"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "E poi",
+      "numerati": true,
+      "punti": [
+        "Foto vere della tua attività",
+        "Un pulsante chiaro: prenota, chiama o scrivi"
+      ]
+    }
+  ],
+  "fonte": null
+}

@@ -1,0 +1,25 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Sicurezza",
+      "titolo": "Il lucchetto accanto all'indirizzo: *ce l'hai?*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Perché conta",
+      "punti": [
+        "HTTPS protegge i dati tra il sito e chi lo visita",
+        "Senza, Chrome scrive «Non sicuro» accanto all'indirizzo",
+        "Google lo considera nell'esperienza della pagina"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Comprendere l'esperienza sulle pagine di Google",
+    "ente": "Google Search Central",
+    "url": "https://developers.google.com/search/docs/appearance/page-experience?hl=it"
+  }
+}

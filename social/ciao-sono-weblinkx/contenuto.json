@@ -1,0 +1,30 @@
+{
+  "categoria": "dietro-le-quinte",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Ciao, questo è Weblinkx",
+      "titolo": "Siti web, branding e video per le *attività del Ticino*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa faccio",
+      "punti": [
+        "Siti moderni e veloci, fatti bene anche per il telefono",
+        "Loghi e identità visive che si riconoscono",
+        "Video pubblicitari per i social e il web"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Come lavoro",
+      "punti": [
+        "Prima ascolto cosa ti serve",
+        "Ogni progetto è su misura",
+        "Andiamo avanti insieme, passo dopo passo"
+      ]
+    }
+  ],
+  "fonte": null
+}

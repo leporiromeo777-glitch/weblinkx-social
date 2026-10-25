@@ -1,0 +1,30 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Leggibilità",
+      "titolo": "Il testo del tuo sito *si legge davvero?*"
+    },
+    {
+      "tipo": "cifra",
+      "cifra": "4,5 a 1",
+      "testo": "È il contrasto minimo tra testo e sfondo delle regole internazionali sull'accessibilità (WCAG)"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Errori frequenti",
+      "punti": [
+        "Testo grigio chiaro su bianco",
+        "Scritte sopra le foto, senza un fondo scuro",
+        "Caratteri troppo piccoli o sottili"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Web Content Accessibility Guidelines (WCAG) 2.2, criterio 1.4.3",
+    "ente": "W3C",
+    "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum"
+  }
+}

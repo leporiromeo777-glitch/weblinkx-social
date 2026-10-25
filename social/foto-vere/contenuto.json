@@ -1,0 +1,31 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Foto",
+      "titolo": "Foto vere o foto *di repertorio?*"
+    },
+    {
+      "tipo": "confronto",
+      "titolo": "Cosa vede il cliente",
+      "no": "Foto di repertorio: le stesse che si trovano su tanti altri siti",
+      "si": "Foto vere: il tuo locale, i tuoi prodotti, le tue persone"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Tre consigli",
+      "punti": [
+        "Luce naturale, meglio di giorno",
+        "Mostra le persone al lavoro, non solo i prodotti",
+        "Sul sito descrivi ogni foto con un testo alternativo"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Best practice relative alla SEO per le immagini",
+    "ente": "Google Search Central",
+    "url": "https://developers.google.com/search/docs/appearance/google-images?hl=it"
+  }
+}

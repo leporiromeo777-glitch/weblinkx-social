@@ -1,0 +1,37 @@
+{
+  "categoria": "lavoro",
+  "lavoro": "swiss-ncc",
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Lavoro · Transfer, Svizzera",
+      "titolo": "Transfer in tutta la Svizzera: *Swiss NCC*",
+      "lavoro": "swiss-ncc"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "swiss-ncc",
+      "vista": "desktop",
+      "titolo": "Si prenota subito",
+      "testo": "Il modulo per il viaggio è la prima cosa che vedi"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa c'è sul sito",
+      "punti": [
+        "Transfer da e per gli aeroporti svizzeri",
+        "La flotta, sempre in vista",
+        "Le tratte più richieste",
+        "Prenotare in pochi passi"
+      ]
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "swiss-ncc",
+      "vista": "mobile",
+      "titolo": "In sei lingue",
+      "testo": "Per i clienti svizzeri e per chi arriva da lontano"
+    }
+  ],
+  "fonte": null
+}

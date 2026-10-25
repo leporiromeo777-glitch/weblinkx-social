@@ -1,0 +1,33 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Google",
+      "titolo": "Cosa vede chi ti trova *su Google?*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Il titolo blu",
+      "punti": [
+        "Viene di solito dal titolo della pagina",
+        "Scrivi cosa fai e dove, non solo «Home»",
+        "Ogni pagina ha il suo titolo, diverso dalle altre"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "La descrizione sotto",
+      "punti": [
+        "Google la prende spesso dalla meta descrizione",
+        "Scrivila per ogni pagina: cosa offri e perché sceglierti"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Influenzare i link dei titoli nella Ricerca Google",
+    "ente": "Google Search Central",
+    "url": "https://developers.google.com/search/docs/appearance/title-link?hl=it"
+  }
+}

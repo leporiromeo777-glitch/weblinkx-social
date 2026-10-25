@@ -2,7 +2,7 @@
  * Il piano dei post di Weblinkx: ogni giorno un video (Reel, a pranzo) e un
  * carosello di immagini (la sera) su due argomenti diversi. Ogni post esce
  * una volta in video e una volta in carosello, a qualche settimana di
- * distanza (ORDINE_VIDEO, SFASAMENTO_CAROSELLO). Ogni post ha le schede (le
+ * distanza (CALENDARIO). Ogni post ha le schede (le
  * grafiche le fa video/, vedi social/README.md), la didascalia, gli hashtag
  * e, per i consigli, le fonti ufficiali.
  *
@@ -37,8 +37,8 @@ export type SchedaPost =
 
 export type PostSocial = {
   id: string;
-  /** Il giorno (ISO, ora svizzera) in cui esce come video e come carosello: lo calcola il piano. */
-  uscite: Record<Formato, string>;
+  /** Il giorno (ISO, ora svizzera) in cui esce come video e come carosello: lo calcola il CALENDARIO. */
+  uscite: Partial<Record<Formato, string>>;
   categoria: Categoria;
   /** Il lavoro mostrato, per i post sui lavori. */
   lavoro?: IdLavoro;
@@ -62,7 +62,11 @@ export const INVITO = {
   sotto: "Scrivimi: preventivo senza impegno",
 } as const;
 
-/** Il primo giorno del piano. Per spostare tutto basta cambiare questa data. */
+/**
+ * Il primo giorno del piano. Per spostare tutto basta cambiare questa data,
+ * ma solo prima del primo post: i test confrontano i giorni usciti con
+ * social/storico.json.
+ */
 export const INIZIO_PIANO = "2026-10-27";
 
 /** Il giorno ISO `giorni` dopo `inizio`. */
@@ -716,48 +720,47 @@ const PIANO: readonly Omit<PostSocial, "uscite">[] = [
 ];
 
 /**
- * L'ordine dei video, un post al giorno da INIZIO_PIANO: prima i lavori e il
- * dietro le quinte (nel video i siti scorrono), poi i consigli.
+ * Il calendario, un giorno per riga da INIZIO_PIANO: il video di pranzo e il
+ * carosello della sera, su due argomenti diversi. Ogni post esce al massimo
+ * una volta per formato; di solito una volta in video e una in carosello, a
+ * 12-17 giorni di distanza. I video partono dai lavori e dal dietro le
+ * quinte (nel video i siti scorrono), i caroselli dai consigli da salvare.
+ *
+ * I giorni già passati non si toccano: i test li confrontano con
+ * social/storico.json. Per i giorni futuri si può cambiare l'ordine o
+ * aggiungere righe in fondo.
  */
-export const ORDINE_VIDEO = [
-  "ciao-sono-weblinkx",
-  "lavoro-essenza",
-  "come-nasce-un-sito",
-  "lavoro-swiss-ncc",
-  "sito-sul-telefono",
-  "lavoro-centro-cardiologico",
-  "come-nasce-un-logo",
-  "lavoro-jf-limo",
-  "velocita-sito",
-  "lavoro-villa-hedonia",
-  "come-nasce-un-video",
-  "lavoro-slada",
-  "pulsante-whatsapp",
-  "ogni-sito-diverso",
-  "anteprima-prima-di-pubblicare",
-  "lavoro-tre-lingue",
-  "cosa-preparare",
-  "google-maps",
-  "foto-vere",
-  "recensioni-google",
-  "errori-sito",
-  "titolo-su-google",
-  "cinque-cose-sito",
-  "dominio-email",
-  "lucchetto-https",
-  "informativa-privacy",
-  "contrasto-testo",
-  "vendere-online-legge",
-  "checklist-sito",
-] as const;
-
-/**
- * Il carosello di un giorno è il video di 17 giorni dopo (o, verso la fine,
- * di 12 giorni prima): così video e carosello dello stesso giorno parlano di
- * cose diverse, i caroselli partono dai consigli da salvare, e ogni
- * argomento torna nell'altro formato dopo qualche settimana.
- */
-export const SFASAMENTO_CAROSELLO = 17;
+export const CALENDARIO: readonly Readonly<Record<Formato, string>>[] = [
+  { video: "ciao-sono-weblinkx", carosello: "google-maps" },
+  { video: "lavoro-essenza", carosello: "foto-vere" },
+  { video: "come-nasce-un-sito", carosello: "recensioni-google" },
+  { video: "lavoro-swiss-ncc", carosello: "errori-sito" },
+  { video: "sito-sul-telefono", carosello: "titolo-su-google" },
+  { video: "lavoro-centro-cardiologico", carosello: "cinque-cose-sito" },
+  { video: "come-nasce-un-logo", carosello: "dominio-email" },
+  { video: "lavoro-jf-limo", carosello: "lucchetto-https" },
+  { video: "velocita-sito", carosello: "informativa-privacy" },
+  { video: "lavoro-villa-hedonia", carosello: "contrasto-testo" },
+  { video: "come-nasce-un-video", carosello: "vendere-online-legge" },
+  { video: "lavoro-slada", carosello: "checklist-sito" },
+  { video: "pulsante-whatsapp", carosello: "ciao-sono-weblinkx" },
+  { video: "ogni-sito-diverso", carosello: "lavoro-essenza" },
+  { video: "anteprima-prima-di-pubblicare", carosello: "come-nasce-un-sito" },
+  { video: "lavoro-tre-lingue", carosello: "lavoro-swiss-ncc" },
+  { video: "cosa-preparare", carosello: "sito-sul-telefono" },
+  { video: "google-maps", carosello: "lavoro-centro-cardiologico" },
+  { video: "foto-vere", carosello: "come-nasce-un-logo" },
+  { video: "recensioni-google", carosello: "lavoro-jf-limo" },
+  { video: "errori-sito", carosello: "velocita-sito" },
+  { video: "titolo-su-google", carosello: "lavoro-villa-hedonia" },
+  { video: "cinque-cose-sito", carosello: "come-nasce-un-video" },
+  { video: "dominio-email", carosello: "lavoro-slada" },
+  { video: "lucchetto-https", carosello: "pulsante-whatsapp" },
+  { video: "informativa-privacy", carosello: "ogni-sito-diverso" },
+  { video: "contrasto-testo", carosello: "anteprima-prima-di-pubblicare" },
+  { video: "vendere-online-legge", carosello: "lavoro-tre-lingue" },
+  { video: "checklist-sito", carosello: "cosa-preparare" },
+];
 
 /** Il giorno ISO numero `indice` del piano (0 = INIZIO_PIANO). */
 export function giornoDelPiano(indice: number): string {
@@ -765,25 +768,30 @@ export function giornoDelPiano(indice: number): string {
 }
 
 /** L'ultimo giorno del piano. */
-export const FINE_PIANO = giornoDelPiano(ORDINE_VIDEO.length - 1);
+export const FINE_PIANO = giornoDelPiano(CALENDARIO.length - 1);
 
-/** I post con i loro giorni, nell'ordine dei video. */
-export const POST_SOCIAL: readonly PostSocial[] = ORDINE_VIDEO.map((id, i) => {
-  const post = PIANO.find((p) => p.id === id);
-  if (!post) throw new Error(`ORDINE_VIDEO: post sconosciuto ${id}`);
-  const n = ORDINE_VIDEO.length;
-  // Il giorno in cui esce come carosello: quello il cui video è 17 posti più avanti.
-  const carosello = (i - SFASAMENTO_CAROSELLO + n) % n;
-  return { ...post, uscite: { video: giornoDelPiano(i), carosello: giornoDelPiano(carosello) } };
-});
+/** I post del calendario con i loro giorni, nell'ordine in cui escono la prima volta. */
+export const POST_SOCIAL: readonly PostSocial[] = (() => {
+  const uscite = new Map<string, PostSocial["uscite"]>();
+  CALENDARIO.forEach((giorno, i) => {
+    for (const formato of ["video", "carosello"] as const) {
+      const id = giorno[formato];
+      if (!PIANO.some((p) => p.id === id)) throw new Error(`CALENDARIO: post sconosciuto ${id}`);
+      const giorni = uscite.get(id) ?? {};
+      if (giorni[formato]) throw new Error(`CALENDARIO: ${id} esce due volte come ${formato}`);
+      uscite.set(id, { ...giorni, [formato]: giornoDelPiano(i) });
+    }
+  });
+  return [...uscite].map(([id, giorni]) => ({ ...PIANO.find((p) => p.id === id)!, uscite: giorni }));
+})();
 
 /** Il post che esce in quel giorno in quel formato. */
 export function postDelGiorno(data: string, formato: Formato): PostSocial | undefined {
   return POST_SOCIAL.find((p) => p.uscite[formato] === data);
 }
 
-/** I post scritti ma non in ORDINE_VIDEO (non escono mai): per i test. */
-export const POST_FUORI_PIANO = PIANO.filter((p) => !(ORDINE_VIDEO as readonly string[]).includes(p.id)).map((p) => p.id);
+/** I post scritti ma non nel calendario (non escono mai): per i test. */
+export const POST_FUORI_PIANO = PIANO.filter((p) => !POST_SOCIAL.some((q) => q.id === p.id)).map((p) => p.id);
 
 export function trovaPost(id: string): PostSocial {
   const post = POST_SOCIAL.find((p) => p.id === id);
@@ -794,6 +802,16 @@ export function trovaPost(id: string): PostSocial {
 /** I nomi dei file delle immagini di un post: una per scheda più l'invito finale. */
 export function immaginiPost(post: PostSocial): string[] {
   return Array.from({ length: post.schede.length + 1 }, (_, i) => `${String(i + 1).padStart(2, "0")}.jpg`);
+}
+
+/**
+ * Quello che si vede nelle immagini di un post. Le grafiche lo salvano in
+ * social/<id>/contenuto.json e i test lo confrontano con il post: se un testo
+ * cambia, le immagini vanno rifatte (cd video && npm run social -- <id>).
+ */
+export function contenutoImmagini(post: PostSocial): string {
+  const { categoria, lavoro = null, schede } = post;
+  return `${JSON.stringify({ categoria, lavoro, schede, fonte: post.fonti[0] ?? null }, null, 2)}\n`;
 }
 
 /** Il titolo senza gli asterischi. */

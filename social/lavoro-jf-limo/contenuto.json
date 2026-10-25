@@ -1,0 +1,37 @@
+{
+  "categoria": "lavoro",
+  "lavoro": "jf-limo",
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Lavoro · Limousine, Zurigo",
+      "titolo": "Limousine a Zurigo: *JF Limo Service*",
+      "lavoro": "jf-limo"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "jf-limo",
+      "vista": "desktop",
+      "titolo": "Elegante come le sue auto",
+      "testo": "Scuro, raffinato, con la prenotazione subito in alto"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa c'è sul sito",
+      "punti": [
+        "Prenotazione della corsa direttamente sul sito",
+        "Le classi di veicoli da scegliere",
+        "Le tratte più richieste",
+        "Recensioni e domande frequenti"
+      ]
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "jf-limo",
+      "vista": "mobile",
+      "titolo": "In tedesco e in inglese",
+      "testo": "Per i clienti di Zurigo e per chi arriva in aereo"
+    }
+  ],
+  "fonte": null
+}

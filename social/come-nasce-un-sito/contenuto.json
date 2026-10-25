@@ -1,0 +1,23 @@
+{
+  "categoria": "dietro-le-quinte",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Dietro le quinte",
+      "titolo": "Come nasce un sito *con Weblinkx*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Quattro passi",
+      "numerati": true,
+      "punti": [
+        "Ascolto: parliamo della tua attività e di cosa ti serve",
+        "Proposta: struttura e stile, prima di cominciare",
+        "Sviluppo: il sito prende forma e lo vedi passo dopo passo",
+        "Online: pubblicazione con il tuo dominio"
+      ]
+    }
+  ],
+  "fonte": null
+}

@@ -1,0 +1,33 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · WhatsApp",
+      "titolo": "Un pulsante WhatsApp sul sito: *come si fa*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Il link giusto",
+      "punti": [
+        "WhatsApp ti dà un link: wa.me/ e il tuo numero",
+        "Il numero va scritto completo, con il prefisso 41",
+        "Senza +, zeri iniziali, spazi o trattini"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa succede",
+      "punti": [
+        "Chi lo tocca apre subito la chat con te",
+        "Puoi aggiungere un messaggio già scritto"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Come usare la funzione clicca per chattare",
+    "ente": "WhatsApp, Centro assistenza",
+    "url": "https://faq.whatsapp.com/5913398998672934/?locale=it_IT"
+  }
+}

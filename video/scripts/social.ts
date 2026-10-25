@@ -6,16 +6,17 @@
  *   npm run social -- <id> ...   solo questi
  *
  * Un JPEG 1080×1350 per scheda più quello finale (social/<id>/01.jpg, 02.jpg,
- * …): Instagram pubblica solo JPEG. Le immagini vanno nel repository.
+ * …): Instagram pubblica solo JPEG. Le immagini vanno nel repository, con
+ * contenuto.json: i test lo usano per accorgersi delle immagini da rifare.
  * Serve curl per il carattere, la prima volta. Il browser è quello che
  * Remotion scarica da solo; per usarne un altro: REMOTION_BROWSER=/percorso/di/chrome.
  */
-import { mkdirSync, rmSync } from "node:fs";
+import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { bundle } from "@remotion/bundler";
 import { openBrowser, renderStill, selectComposition } from "@remotion/renderer";
-import { immaginiPost, POST_SOCIAL } from "../../src/data/post";
+import { contenutoImmagini, immaginiPost, POST_SOCIAL } from "../../src/data/post";
 import { scaricaCaratteri } from "./caratteri";
 import { copiaSiti } from "./risorse";
 
@@ -59,6 +60,7 @@ try {
         browserExecutable,
       });
     }
+    writeFileSync(join(cartella, "contenuto.json"), contenutoImmagini(p));
     console.log(`social/${p.id}/: ${nomi.length} immagini`);
   }
 } finally {

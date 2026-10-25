@@ -1,0 +1,35 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Google Maps",
+      "titolo": "Su Google Maps trovano gli altri *e non te?*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Google guarda tre cose",
+      "punti": [
+        "Pertinenza: quanto il tuo profilo corrisponde a quello che si cerca",
+        "Distanza: quanto sei vicino a chi cerca",
+        "Popolarità: quanto sei conosciuto, anche dalle recensioni"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa puoi fare oggi",
+      "punti": [
+        "Completa tutti i dati del profilo della tua attività",
+        "Tieni aggiornati gli orari, anche quelli dei festivi",
+        "Rispondi alle recensioni",
+        "Aggiungi foto della tua attività"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Suggerimenti per migliorare il posizionamento nei risultati di ricerca locale su Google",
+    "ente": "Google, Guida di Profilo dell'attività",
+    "url": "https://support.google.com/business/answer/7091?hl=it"
+  }
+}

@@ -6,14 +6,15 @@ Ogni giorno escono da soli e gratis due contenuti di Weblinkx: a pranzo un
 colleghi). Poi il sistema legge le statistiche e scrive quali post vanno
 meglio e perché ([`analisi.md`](analisi.md)).
 
-- **I post** sono in [`src/data/post.ts`](../src/data/post.ts): dal
-  27.10.2026 per 29 giorni (il primo giorno è `INIZIO_PIANO`: per spostare
-  tutto basta cambiare quella data). Il video e il carosello dello stesso
-  giorno parlano di **argomenti diversi**: i video seguono `ORDINE_VIDEO`
-  (prima i lavori, dove i siti scorrono), i caroselli lo stesso elenco
-  spostato di 17 giorni (prima i consigli da salvare). Così ogni argomento
-  esce una volta in video e una volta in carosello, a 12-17 giorni di
-  distanza. Ci sono quattro tipi di
+- **I post** sono in [`src/data/post.ts`](../src/data/post.ts), e i giorni
+  in cui escono nel `CALENDARIO`: una riga al giorno dal 27.10.2026
+  (`INIZIO_PIANO`), con il video e il carosello. Il video e il carosello
+  dello stesso giorno parlano di **argomenti diversi**: i video partono dai
+  lavori (dove i siti scorrono), i caroselli dai consigli da salvare, e ogni
+  argomento torna nell'altro formato dopo 12-17 giorni. I giorni già usciti
+  non si cambiano più: i test confrontano il calendario con `storico.json`
+  (per spostare tutto con `INIZIO_PIANO` bisogna farlo prima del primo
+  post). Ci sono quattro tipi di
   post: i **lavori** (i siti dei clienti, da
   [`src/data/lavori.ts`](../src/data/lavori.ts)), i **consigli** per chi ha
   un'attività (ogni regola o cifra con la sua fonte ufficiale, da
@@ -25,7 +26,9 @@ meglio e perché ([`analisi.md`](analisi.md)).
   cambia il sito, rifalle e rifai le immagini dei post che lo mostrano.
 - **Le immagini** sono in questa cartella, `social/<id-del-post>/01.jpg, 02.jpg, …`
   (JPEG 1080×1350). Le fa Remotion con i colori e il carattere del sito
-  Weblinkx: `cd video && npm run social`.
+  Weblinkx: `cd video && npm run social`. Accanto c'è `contenuto.json`, i
+  testi da cui sono fatte: se un testo delle schede cambia e le immagini no,
+  `npm test` lo segnala.
 - **Il video** (1080×1920, 25-45 secondi) lo fa Remotion al momento, dalle
   stesse schede: i titoli entrano parola per parola, i siti dei clienti
   scorrono nel telefono e nel browser, i punti compaiono quando la voce li
@@ -123,9 +126,29 @@ Ogni sera, dopo il carosello, `npm run social:statistiche` legge da Meta i
 numeri dei post degli ultimi 28 giorni (`statistiche.json`) e riscrive
 `analisi.md`: classifica, migliore e peggiore, e cosa hanno in comune i post
 che vanno meglio (tipo di post, sito di un cliente, domanda o affermazione
-nel titolo, giorno). Quando il piano finisce il workflow fallisce apposta, e
-GitHub ti manda un'email: è il momento di scrivere i post nuovi in
-`src/data/post.ts`, partendo da `analisi.md`.
+nel titolo).
+
+**La routine che corregge il tiro.** Ogni **lunedì e giovedì alle 7:37**
+(ora svizzera) una routine di Claude legge `analisi.md`, scrive in
+[`analisi/`](analisi) cosa è andato bene e male e perché (separato per video
+e carosello), e rende i post dei giorni dopo più simili a quelli andati
+meglio:
+
+- cambia testi e schede dei post futuri, o il loro ordine nel `CALENDARIO`,
+  mai quelli di oggi e di domani né quelli già usciti;
+- quando al calendario restano meno di 14 giorni aggiunge post nuovi sui
+  temi che funzionano: solo lavori veri di `src/data/lavori.ts` e cifre con
+  la fonte in `src/data/fonti.ts`;
+- rifà le immagini e le voci (Holden, con Higgsfield) dei post cambiati;
+- se `npm test` e `npm run typecheck` passano, fa il commit su `main` da sola
+  (senza pull request); se no non cambia nulla e lo dice.
+
+Con pochi dati (i primi giorni) non cambia nulla. Il riassunto arriva come
+notifica sul telefono. La routine si gestisce da claude.ai/code, sezione
+delle attività programmate («Analisi dei social di Weblinkx»).
+
+Se il calendario finisce senza post nuovi, il workflow fallisce apposta e
+GitHub ti manda un'email.
 
 ## Prima e dopo
 

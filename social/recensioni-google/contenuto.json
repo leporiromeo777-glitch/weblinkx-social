@@ -1,0 +1,33 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Recensioni",
+      "titolo": "Come avere *più recensioni* su Google"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Chiedile al momento giusto",
+      "punti": [
+        "Subito dopo un lavoro riuscito",
+        "Con il link di Google, così basta un tocco",
+        "Anche con il codice QR, in negozio o sulla ricevuta"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "E rispondi sempre",
+      "punti": [
+        "Ringrazia chi ti lascia una recensione",
+        "Alle critiche rispondi con calma e proponi una soluzione"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Suggerimenti per ricevere più recensioni",
+    "ente": "Google, Guida di Profilo dell'attività",
+    "url": "https://support.google.com/business/answer/3474122?hl=it"
+  }
+}

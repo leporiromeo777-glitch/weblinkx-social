@@ -1,0 +1,36 @@
+{
+  "categoria": "lavoro",
+  "lavoro": "villa-hedonia",
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Lavoro · Villa per eventi, Bosnia",
+      "titolo": "Anche fuori dalla Svizzera: *Villa Hedonia*",
+      "lavoro": "villa-hedonia"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "villa-hedonia",
+      "vista": "desktop",
+      "titolo": "Le foto parlano da sole",
+      "testo": "Piscina, giardino e feste all'aperto, subito in primo piano"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa c'è sul sito",
+      "punti": [
+        "Le foto della villa e della piscina",
+        "Matrimoni, compleanni e feste",
+        "Si controlla se la data è libera"
+      ]
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "villa-hedonia",
+      "vista": "mobile",
+      "titolo": "Nella lingua dei suoi clienti",
+      "testo": "Tutto in serbo, pensato per il telefono"
+    }
+  ],
+  "fonte": null
+}

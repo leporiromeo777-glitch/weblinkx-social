@@ -1,0 +1,39 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Velocità",
+      "titolo": "Il tuo sito è lento? *Ecco come lo misura Google*"
+    },
+    {
+      "tipo": "cifra",
+      "cifra": "2,5 secondi",
+      "testo": "Entro questo tempo dovrebbe comparire il contenuto principale della pagina"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa rallenta un sito",
+      "punti": [
+        "Foto troppo pesanti, non compresse",
+        "Troppi plugin e script",
+        "Video che partono da soli"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Come controllarlo",
+      "punti": [
+        "Apri PageSpeed Insights di Google",
+        "Incolla l'indirizzo del tuo sito",
+        "Guarda il risultato per i telefoni"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Largest Contentful Paint (LCP)",
+    "ente": "Google, web.dev",
+    "url": "https://web.dev/articles/lcp?hl=it"
+  }
+}

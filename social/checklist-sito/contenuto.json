@@ -1,0 +1,38 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Salva questo post",
+      "titolo": "Il tuo sito in *8 domande*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Per i clienti",
+      "numerati": true,
+      "punti": [
+        "Si capisce subito cosa fai e dove?",
+        "Telefono e WhatsApp si aprono con un tocco?",
+        "Gli orari sono aggiornati?",
+        "Sul telefono si legge senza ingrandire?"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Per Google e per la legge",
+      "numerati": true,
+      "punti": [
+        "Si apre in fretta?",
+        "C'è il lucchetto, cioè HTTPS?",
+        "C'è l'informativa sulla privacy?",
+        "Il profilo su Google Maps è completo?"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Best practice per l'indicizzazione mobile-first",
+    "ente": "Google Search Central",
+    "url": "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing?hl=it"
+  }
+}

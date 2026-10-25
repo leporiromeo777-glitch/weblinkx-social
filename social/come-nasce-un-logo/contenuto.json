@@ -1,0 +1,32 @@
+{
+  "categoria": "dietro-le-quinte",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Dietro le quinte · Branding",
+      "titolo": "Come nasce *un logo*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Il percorso",
+      "numerati": true,
+      "punti": [
+        "Prima le parole: chi sei, a chi parli, cosa ti rende diverso",
+        "Poi gli schizzi: tante idee, poche scelte",
+        "Colori e caratteri che stanno bene insieme",
+        "La prova: piccolo, grande, a colori e in bianco e nero"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa ricevi",
+      "punti": [
+        "Il logo nelle versioni per sito, social e stampa",
+        "La palette dei colori",
+        "Le linee guida per usarlo sempre uguale"
+      ]
+    }
+  ],
+  "fonte": null
+}

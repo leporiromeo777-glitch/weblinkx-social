@@ -1,0 +1,37 @@
+{
+  "categoria": "lavoro",
+  "lavoro": "centro-cardiologico",
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Lavoro · Centro medico, Lugano",
+      "titolo": "Il sito del *Centro Cardiologico Ticino*",
+      "lavoro": "centro-cardiologico"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "centro-cardiologico",
+      "vista": "desktop",
+      "titolo": "Chiaro e rassicurante",
+      "testo": "Come dev'essere il sito di un centro medico"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa c'è sul sito",
+      "punti": [
+        "La filosofia del centro",
+        "I check-up",
+        "Una pagina per i medici che inviano i pazienti",
+        "Dove si trova, nel cuore di Lugano"
+      ]
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "centro-cardiologico",
+      "vista": "mobile",
+      "titolo": "Facile anche sul telefono",
+      "testo": "Si trova subito quello che serve"
+    }
+  ],
+  "fonte": null
+}

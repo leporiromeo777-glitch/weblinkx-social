@@ -1,0 +1,31 @@
+{
+  "categoria": "dietro-le-quinte",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Dietro le quinte",
+      "titolo": "Vuoi un sito? *Ecco cosa preparare*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Da parte tua",
+      "punti": [
+        "Il logo, se ce l'hai (se no lo facciamo insieme)",
+        "Qualche foto della tua attività",
+        "Cosa offri, gli orari e, se vuoi, i prezzi",
+        "Il nome del dominio che ti piace"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Al resto penso io",
+      "punti": [
+        "Struttura e grafica",
+        "Che si veda bene su telefono e computer",
+        "La pubblicazione online"
+      ]
+    }
+  ],
+  "fonte": null
+}

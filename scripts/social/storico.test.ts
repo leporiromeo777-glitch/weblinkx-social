@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { POST_SOCIAL } from "../../src/data/post";
+import { POST_SOCIAL, postDelGiorno } from "../../src/data/post";
 import { PIATTAFORME } from "../../src/lib/post";
 import { aggiungiAlloStorico, FILE_STORICO, FORMATI, giaPubblicato, togliDalloStorico, type VoceStorico } from "./storico";
 
@@ -47,6 +47,8 @@ describe("storico delle pubblicazioni", () => {
       expect(PIATTAFORME).toContain(v.piattaforma);
       expect(FORMATI).toContain(v.formato);
       expect(v.id).not.toBe("");
+      // I giorni già usciti non si spostano: il calendario deve dire lo stesso post.
+      expect(postDelGiorno(v.data, v.formato)?.id, `${v.formato} del ${v.data}`).toBe(v.post);
     }
   });
 });

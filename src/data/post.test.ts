@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 import { didascalia, LIMITI_DIDASCALIA, PIATTAFORME } from "../lib/post";
 import { ID_LAVORI, type IdLavoro } from "./lavori";
 import {
+  CALENDARIO,
+  contenutoImmagini,
   FINE_PIANO,
   giornoDelPiano,
   HASHTAG_COMUNI,
@@ -27,8 +29,7 @@ function lavoriDelPost(post: (typeof POST_SOCIAL)[number]): IdLavoro[] {
 describe("piano dei post", () => {
   it("ogni giorno un video e un carosello su due post diversi", () => {
     expect(POST_FUORI_PIANO).toEqual([]);
-    expect(new Set(POST_SOCIAL.map((p) => p.id)).size).toBe(POST_SOCIAL.length);
-    for (let i = 0; i < POST_SOCIAL.length; i++) {
+    for (let i = 0; i < CALENDARIO.length; i++) {
       const giorno = giornoDelPiano(i);
       const video = postDelGiorno(giorno, "video");
       const carosello = postDelGiorno(giorno, "carosello");
@@ -37,13 +38,22 @@ describe("piano dei post", () => {
       expect(video!.id).not.toBe(carosello!.id);
     }
     expect(postDelGiorno(INIZIO_PIANO, "video")!.id).toBe("ciao-sono-weblinkx");
-    expect(giornoDelPiano(POST_SOCIAL.length - 1)).toBe(FINE_PIANO);
+    expect(giornoDelPiano(CALENDARIO.length - 1)).toBe(FINE_PIANO);
+    expect(postDelGiorno(giornoDelPiano(CALENDARIO.length), "video")).toBeUndefined();
+  });
+
+  it("due giorni di fila non hanno lo stesso argomento", () => {
+    for (let i = 1; i < CALENDARIO.length; i++) {
+      const ieri = Object.values(CALENDARIO[i - 1]);
+      for (const id of Object.values(CALENDARIO[i])) expect(ieri, `${giornoDelPiano(i)}: ${id}`).not.toContain(id);
+    }
   });
 
   it("lo stesso argomento torna nell'altro formato dopo almeno 10 giorni", () => {
-    for (const p of POST_SOCIAL) {
-      const giorni = Math.abs(Date.parse(p.uscite.video) - Date.parse(p.uscite.carosello)) / 86_400_000;
-      expect(giorni, p.id).toBeGreaterThanOrEqual(10);
+    for (const { id, uscite } of POST_SOCIAL) {
+      if (!uscite.video || !uscite.carosello) continue;
+      const giorni = Math.abs(Date.parse(uscite.video) - Date.parse(uscite.carosello)) / 86_400_000;
+      expect(giorni, id).toBeGreaterThanOrEqual(10);
     }
   });
 
@@ -101,5 +111,8 @@ describe("piano dei post", () => {
 
   it.each(POST_SOCIAL.map((p) => [p.id, p] as const))("%s: le immagini sono pronte in social/", (_, post) => {
     for (const nome of immaginiPost(post)) expect(existsSync(`social/${post.id}/${nome}`), `social/${post.id}/${nome}`).toBe(true);
+    // Se un testo delle schede è cambiato, le immagini vanno rifatte: cd video && npm run social -- <id>.
+    const contenuto = `social/${post.id}/contenuto.json`;
+    expect(existsSync(contenuto) && readFileSync(contenuto, "utf8"), `${contenuto}: rifai le immagini`).toBe(contenutoImmagini(post));
   });
 });

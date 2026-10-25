@@ -1,0 +1,33 @@
+{
+  "categoria": "lavoro",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Lavori",
+      "titolo": "Il sito parla la lingua *dei tuoi clienti*"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "swiss-ncc",
+      "vista": "desktop",
+      "titolo": "In sei lingue",
+      "testo": "Swiss NCC: transfer in tutta la Svizzera"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "jf-limo",
+      "vista": "desktop",
+      "titolo": "In tedesco e in inglese",
+      "testo": "JF Limo Service: la clientela di Zurigo"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "slada",
+      "vista": "desktop",
+      "titolo": "In serbo",
+      "testo": "Slađa: i clienti di casa sua"
+    }
+  ],
+  "fonte": null
+}

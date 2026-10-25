@@ -1,0 +1,34 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Email",
+      "titolo": "info@tuaattivita.ch *batte Gmail*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Perché",
+      "punti": [
+        "Sembra subito più professionale",
+        "Il dominio .ch dice che sei in Svizzera",
+        "Indirizzo del sito ed email hanno lo stesso nome"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Come sceglierlo",
+      "punti": [
+        "Corto e facile da dettare al telefono",
+        "Senza trattini, se puoi",
+        "Registralo a nome della tua attività"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Domini .ch e .li",
+    "ente": "SWITCH, nic.ch",
+    "url": "https://www.nic.ch/it/"
+  }
+}

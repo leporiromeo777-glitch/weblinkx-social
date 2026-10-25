@@ -1,0 +1,27 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Legge",
+      "titolo": "Vendi online? *La legge chiede questo*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Nel commercio elettronico",
+      "numerati": true,
+      "punti": [
+        "Chi sei e un indirizzo di contatto, anche email",
+        "I passi per concludere il contratto",
+        "Un modo per correggere gli errori prima di ordinare",
+        "La conferma dell'ordine, subito, per via elettronica"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Legge federale contro la concorrenza sleale (LCSl), art. 3 cpv. 1 lett. s",
+    "ente": "Confederazione svizzera, Fedlex",
+    "url": "https://www.fedlex.admin.ch/eli/cc/1988/223_223_223/it"
+  }
+}

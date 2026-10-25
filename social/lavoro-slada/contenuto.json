@@ -1,0 +1,36 @@
+{
+  "categoria": "lavoro",
+  "lavoro": "slada",
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Lavoro · Negozio agricolo, Bosnia",
+      "titolo": "Un sito per un negozio agricolo: *Slađa*",
+      "lavoro": "slada"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "slada",
+      "vista": "desktop",
+      "titolo": "Tanti prodotti, tutto in ordine",
+      "testo": "Sementi, concimi, trattori e attrezzi, divisi per categoria"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa c'è sul sito",
+      "punti": [
+        "Il catalogo dei prodotti",
+        "Un'azienda attiva dal 2001",
+        "Contatti e indicazioni per arrivare"
+      ]
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "slada",
+      "vista": "mobile",
+      "titolo": "Pronto per il telefono",
+      "testo": "Telefono, indirizzo e orari sempre a portata di mano"
+    }
+  ],
+  "fonte": null
+}

@@ -1,0 +1,23 @@
+{
+  "categoria": "dietro-le-quinte",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Dietro le quinte",
+      "titolo": "Prima di andare online, *il sito lo provi tu*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Come funziona",
+      "numerati": true,
+      "punti": [
+        "Ti mando un link per vedere il sito in anteprima",
+        "Lo guardi sul telefono e sul computer",
+        "Mi dici cosa cambiare",
+        "Quando ti piace, va online con il tuo dominio"
+      ]
+    }
+  ],
+  "fonte": null
+}

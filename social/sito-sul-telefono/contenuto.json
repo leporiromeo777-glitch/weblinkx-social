@@ -1,0 +1,34 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Telefono",
+      "titolo": "Il tuo sito funziona bene *sul telefono?*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Google guarda prima il telefono",
+      "punti": [
+        "Per decidere come mostrarti, Google usa la versione del sito per telefono",
+        "Testi e foto che sul telefono mancano, per Google non ci sono"
+      ]
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Controlla in un minuto",
+      "punti": [
+        "Il testo si legge senza ingrandire",
+        "I pulsanti si toccano facilmente con il dito",
+        "Telefono e indirizzo si aprono con un tocco",
+        "Niente finestre che coprono tutta la pagina"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Best practice per l'indicizzazione mobile-first",
+    "ente": "Google Search Central",
+    "url": "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing?hl=it"
+  }
+}

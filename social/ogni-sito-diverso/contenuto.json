@@ -1,0 +1,40 @@
+{
+  "categoria": "lavoro",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Lavori",
+      "titolo": "Ogni attività è diversa, *ogni sito anche*"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "essenza",
+      "vista": "mobile",
+      "titolo": "Un centro estetico",
+      "testo": "EssenZa, Vacallo: elegante e caldo"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "centro-cardiologico",
+      "vista": "mobile",
+      "titolo": "Un centro medico",
+      "testo": "Centro Cardiologico Ticino, Lugano: chiaro e rassicurante"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "jf-limo",
+      "vista": "mobile",
+      "titolo": "Un servizio di limousine",
+      "testo": "JF Limo Service, Zurigo: scuro ed elegante"
+    },
+    {
+      "tipo": "sito",
+      "lavoro": "villa-hedonia",
+      "vista": "mobile",
+      "titolo": "Una villa per eventi",
+      "testo": "Villa Hedonia, Bosnia: foto che fanno sognare"
+    }
+  ],
+  "fonte": null
+}

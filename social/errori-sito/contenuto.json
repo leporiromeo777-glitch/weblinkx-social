@@ -1,0 +1,23 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Errori",
+      "titolo": "4 errori che fanno *scappare i clienti*"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Li vedo spesso",
+      "numerati": true,
+      "punti": [
+        "Non si capisce cosa fai nei primi secondi",
+        "Il numero di telefono non si trova",
+        "Orari e prezzi vecchi",
+        "Sul telefono bisogna ingrandire per leggere"
+      ]
+    }
+  ],
+  "fonte": null
+}

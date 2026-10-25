@@ -1,0 +1,23 @@
+{
+  "categoria": "dietro-le-quinte",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Dietro le quinte · Video",
+      "titolo": "Come nasce *uno spot* per i social"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Il percorso",
+      "numerati": true,
+      "punti": [
+        "La storia: cosa vuoi che la gente ricordi",
+        "Le riprese: luoghi, persone e prodotti veri",
+        "Il montaggio: ritmo, musica e testi",
+        "I formati giusti per ogni social"
+      ]
+    }
+  ],
+  "fonte": null
+}

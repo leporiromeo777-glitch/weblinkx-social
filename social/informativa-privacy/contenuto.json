@@ -1,0 +1,31 @@
+{
+  "categoria": "consiglio",
+  "lavoro": null,
+  "schede": [
+    {
+      "tipo": "copertina",
+      "occhiello": "Consiglio · Privacy",
+      "titolo": "Hai un modulo di contatto? Serve *l'informativa privacy*"
+    },
+    {
+      "tipo": "cifra",
+      "cifra": "1.9.2023",
+      "testo": "Da questa data in Svizzera vale la nuova legge sulla protezione dei dati"
+    },
+    {
+      "tipo": "punti",
+      "titolo": "Cosa dire a chi ti scrive",
+      "punti": [
+        "Chi raccoglie i dati e come contattarlo",
+        "Perché li raccogli",
+        "A chi li passi, se li passi",
+        "Se vanno all'estero, in quale Paese"
+      ]
+    }
+  ],
+  "fonte": {
+    "titolo": "Legge federale sulla protezione dei dati (LPD), art. 19",
+    "ente": "Confederazione svizzera, Fedlex",
+    "url": "https://www.fedlex.admin.ch/eli/cc/2022/491/it"
+  }
+}
