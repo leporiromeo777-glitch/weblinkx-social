@@ -1,1 +1,70 @@
-[]
+[
+  {
+    "data": "2026-10-26",
+    "post": "google-maps",
+    "piattaforma": "facebook",
+    "formato": "carosello",
+    "id": "1125509733985051_122141741139359271",
+    "lettoIl": "2026-10-26T18:42:46.837Z",
+    "giorni": 0,
+    "metriche": {
+      "post_media_view": 0,
+      "post_total_media_view_unique": 0,
+      "post_clicks": 0
+    }
+  },
+  {
+    "data": "2026-10-26",
+    "post": "ciao-sono-weblinkx",
+    "piattaforma": "facebook",
+    "formato": "video",
+    "id": "1153928907308653",
+    "lettoIl": "2026-10-26T18:42:46.837Z",
+    "giorni": 0.3,
+    "metriche": {
+      "blue_reels_play_count": 6,
+      "post_video_avg_time_watched": 1888,
+      "post_video_followers": 0
+    }
+  },
+  {
+    "data": "2026-10-26",
+    "post": "google-maps",
+    "piattaforma": "instagram",
+    "formato": "carosello",
+    "id": "18124772980931691",
+    "lettoIl": "2026-10-26T18:42:46.837Z",
+    "giorni": 0,
+    "metriche": {
+      "reach": 0,
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "profile_visits": 0,
+      "follows": 0
+    }
+  },
+  {
+    "data": "2026-10-26",
+    "post": "ciao-sono-weblinkx",
+    "piattaforma": "instagram",
+    "formato": "video",
+    "id": "18077414681748992",
+    "lettoIl": "2026-10-26T18:42:46.837Z",
+    "giorni": 0.3,
+    "metriche": {
+      "reach": 5,
+      "views": 9,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2571,
+      "reels_skip_rate": 100
+    }
+  }
+]
