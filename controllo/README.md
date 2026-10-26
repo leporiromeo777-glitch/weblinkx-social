@@ -14,7 +14,10 @@ casella del consenso è obbligatoria).
 
 - **Online:** https://weblinkx-controllo.netlify.app (progetto Netlify
   `weblinkx-controllo`).
-- **La pagina:** [`public/index.html`](public/index.html).
+- **La pagina:** [`public/index.html`](public/index.html). Con
+  `?sito=tuaattivita.ch` nell'indirizzo il controllo di quel sito parte da
+  solo: è il link da mettere nelle email
+  (https://weblinkx-controllo.netlify.app/?sito=tuaattivita.ch).
 - **Il controllo:** [`src/controllo.ts`](src/controllo.ts), chiamato da
   [`netlify/functions/controlla.mts`](netlify/functions/controlla.mts)
   (`POST /api/controlla`). Apre solo siti pubblici: niente indirizzi

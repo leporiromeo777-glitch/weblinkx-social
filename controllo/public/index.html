@@ -214,6 +214,13 @@
         pulsante.disabled = false;
       }
     });
+
+    // Un link come …/?sito=tuaattivita.ch fa partire subito il controllo di quel sito.
+    const sitoDalLink = new URLSearchParams(location.search).get("sito");
+    if (sitoDalLink) {
+      document.getElementById("url").value = sitoDalLink;
+      document.getElementById("controllo").requestSubmit();
+    }
   </script>
 </body>
 </html>
