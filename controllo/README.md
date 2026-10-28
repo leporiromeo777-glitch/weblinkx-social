@@ -25,6 +25,10 @@ casella del consenso è obbligatoria).
 - **Le email:** [`src/email.ts`](src/email.ts), mandate da
   [`netlify/functions/rapporto.mts`](netlify/functions/rapporto.mts) quando
   arriva il modulo «rapporto». I moduli restano salvati su Netlify (Forms).
+- **L'orologio dei post:** [`netlify/functions/turno-social.mts`](netlify/functions/turno-social.mts)
+  ogni ora, dalle 12 a mezzanotte svizzere, fa partire il workflow dei post
+  (`.github/workflows/social.yml`): lo schedule di GitHub salta molte
+  esecuzioni. Serve `GITHUB_TOKEN_SOCIAL` su Netlify (sotto).
 - **I test:** `npm test` nella cartella principale.
 
 ## Da fare una volta sola
@@ -42,10 +46,16 @@ casella del consenso è obbligatoria).
    gratuita: https://developers.google.com/speed/docs/insights/v5/get-started
    («Get a Key»), poi su Netlify la variabile `PAGESPEED_API_KEY`, segreta,
    e un nuovo deploy.
-3. **Il tuo indirizzo (facoltativo).** Per `controllo.weblinkx.ch`: su
+3. **L'orologio dei post.** Su GitHub crea un token «fine-grained»
+   (https://github.com/settings/personal-access-tokens/new): nome «Weblinkx
+   orologio post», scadenza la più lunga, *Repository access* → *Only select
+   repositories* → **weblinkx-social**, *Permissions* → *Actions*: **Read and
+   write**. Copialo e mettilo su Netlify nella variabile `GITHUB_TOKEN_SOCIAL`
+   (segreta), poi un nuovo deploy. Quando scade, rifallo uguale.
+4. **Il tuo indirizzo (facoltativo).** Per `controllo.weblinkx.ch`: su
    Netlify **Domain management → Add a domain**, e segui le istruzioni per
    il DNS di weblinkx.ch.
-4. **Il link.** Metti il link alla pagina su weblinkx.ch e nella bio di
+5. **Il link.** Metti il link alla pagina su weblinkx.ch e nella bio di
    Instagram. I post possono finire con «controlla il tuo sito gratis».
 
 ## Aggiornare la pagina
